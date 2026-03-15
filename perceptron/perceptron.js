@@ -20,18 +20,22 @@ module.exports = class Perceptron {
         this.weights = weights;
     }
 
-    showWeights(len) {
-        return this.weights[0].toFixed(2) + ' ' + this.weights[1].toFixed(2) + ' ' + this.weights[2].toFixed(2);
+    showWeights() {
+       return this.weights.map(w => w.toFixed(2)).join(' ');
     }
 
-    calNet (inputs) {
-        return inputs[0] * this.weights[0] + inputs[1] * this.weights[1] + inputs[2] * this.weights[2];
+    calNet(inputRow) {
+        let net = 0;
+        for (let i = 0; i < inputRow.length; i++) {
+            net += inputRow[i] * this.weights[i];
+        }
+        return net;
     }
 
     updateWeights(inputs, expectedOutput, actualOutput) {
         const error = expectedOutput - actualOutput;
-        for (let i = 0; i < inputs.length; i++) {
-            this.weights[i] = this.weights[i] + this.learningRate * error * inputs[i];
+        for (let i = 0; i < this.weights.length; i++) {
+            this.weights[i] = this.weights[i] + (this.learningRate * error * inputs[i]);
         }
     }
 
@@ -43,10 +47,19 @@ module.exports = class Perceptron {
         }
     }
 
+    calculateOutput(inputs) {
+        for (let i = 0; i < inputs.length; i++) {
+            const net = this.calNet(inputs[i]);
+            const output = this.activation(net);
+            console.log(`Input: ${inputs[i]} | Net: ${net.toFixed(2)} | Output: ${output}`);
+        }
+    }
+
     exec() {
         let hasError = true;
-        
-        while (hasError) {
+        let maxCycles = 1000;
+
+        while (hasError && this.ciclo < maxCycles) {
             hasError = false;
             console.log('Ciclo: ' + (this.ciclo += 1));
 
@@ -67,6 +80,11 @@ module.exports = class Perceptron {
             if (!hasError) {
                 console.log('Treinamento concluído!');
             }
+        }
+
+        if (this.ciclo >= maxCycles) {
+            console.log('Número máximo de ciclos atingido. Treinamento interrompido.');
+            console.log('Verifique se os dados são linearmente separáveis ou ajuste os parâmetros de aprendizado.');
         }
     }
 }
