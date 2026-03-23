@@ -1,6 +1,6 @@
 // Ajustar quando necessário, ou seja, quando a saída for diferente da saída esperada. O ajuste é feito com base na fórmula: w(t+1) = w(t) + learningRate * (expectedOutput - output) * input
 
-module.exports = class Perceptron {
+export default class Perceptron {
     ciclo = 0;
     constructor(
         learningRate,

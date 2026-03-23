@@ -1,4 +1,4 @@
-const Perceptron = require('./perceptron');
+import Perceptron from './perceptron.js';
 
 const inputs = [
     [1, 1, 0],

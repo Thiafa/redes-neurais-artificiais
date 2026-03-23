@@ -1,4 +1,4 @@
-const Perceptron = require('./perceptron');
+import Perceptron from './perceptron.js';
 
 // a) Adote taxa de aprendizagem η = 0.5 
 // b) Vetor de pesos iniciais: w=[−0.1 0.3 0.2 −0.2 0.1]  
@@ -9,16 +9,13 @@ const Perceptron = require('./perceptron');
 // • Spam → yd = 1 
 // • Normal → yd = 0
 
-
-
-
 let inputs = [
-    [1, 1, 1, 0],
-    [0, 0, 0, 1],
-    [1, 0, 0, 0],
-    [1, 1, 0, 0],
-    [0, 1, 0, 0],
-    [1, 1, 1, 1],
+    [1, 1, 1, 1, 0],
+    [1, 0, 0, 0, 1],
+    [1, 1, 0, 0, 0],
+    [1, 1, 1, 0, 0],
+    [1, 0, 1, 0, 0],
+    [1, 1, 1, 1, 1],
 ];
 
 const expectedOutput = [

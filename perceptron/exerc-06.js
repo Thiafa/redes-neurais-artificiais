@@ -1,4 +1,4 @@
-const Perceptron = require('./perceptron');
+import Perceptron from './perceptron.js';
 
 const inputs = [
     [1, 1, 1, 0, 1], // João
@@ -12,7 +12,7 @@ const inputs = [
 const expectedOutput = [0, 1, 1, 0, 1, 0];
 
 const weights = [0.1, 0.2, -0.2, -0.2, -0.3];
-const theta = 0;
+const theta = -0.5;
 const learningRate = 0.4;
 
 const perceptron = new Perceptron(

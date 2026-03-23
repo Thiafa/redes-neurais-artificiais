@@ -1,0 +1,25 @@
+{
+  "name": "disc",
+  "version": "1.0.0",
+  "description": "Este projeto contém códigos desenvolvidos para as atividades da disciplina isolada de Aplicações de Redes Neurais Artificiais da Unversidade Estadual de Montes Claros",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thiafa/redes-neurais-artificiais.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Thiafa/redes-neurais-artificiais/issues"
+  },
+  "homepage": "https://github.com/Thiafa/redes-neurais-artificiais#readme",
+  "dependencies": {
+    "@tensorflow/tfjs-node": "^0.1.11",
+    "@tensorflow/tfjs-vis": "^1.1.0"
+  }
+}
